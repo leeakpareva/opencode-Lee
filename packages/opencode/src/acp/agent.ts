@@ -362,7 +362,7 @@ export namespace ACP {
           "terminal-auth": {
             command: "opencode",
             args: ["auth", "login"],
-            label: "OpenCode Login",
+            label: "RAVEN Login",
           },
         }
       }
@@ -382,7 +382,7 @@ export namespace ACP {
         },
         authMethods: [authMethod],
         agentInfo: {
-          name: "OpenCode",
+          name: "RAVEN",
           version: Installation.VERSION,
         },
       }

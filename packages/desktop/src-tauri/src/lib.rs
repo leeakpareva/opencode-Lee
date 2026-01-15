@@ -456,7 +456,7 @@ async fn spawn_local_server(
     loop {
         if timestamp.elapsed() > Duration::from_secs(30) {
             break Err(format!(
-                "Failed to spawn OpenCode Server. Logs:\n{}",
+                "Failed to spawn RAVEN Server. Logs:\n{}",
                 get_logs(app.clone()).await.unwrap()
             ));
         }
