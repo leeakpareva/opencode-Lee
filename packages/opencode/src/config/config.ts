@@ -73,7 +73,7 @@ export namespace Config {
     }
 
     // Project config has highest precedence (overrides global and remote)
-    for (const file of ["opencode.jsonc", "opencode.json"]) {
+    for (const file of ["raven.jsonc", "raven.json"]) {
       const found = await Filesystem.findUp(file, Instance.directory, Instance.worktree)
       for (const resolved of found.toReversed()) {
         result = mergeConfigConcatArrays(result, await loadFile(resolved))
@@ -115,7 +115,7 @@ export namespace Config {
 
     for (const dir of unique(directories)) {
       if (dir.endsWith(".opencode") || dir === Flag.OPENCODE_CONFIG_DIR) {
-        for (const file of ["opencode.jsonc", "opencode.json"]) {
+        for (const file of ["raven.jsonc", "raven.json"]) {
           log.debug(`loading config from ${path.join(dir, file)}`)
           result = mergeConfigConcatArrays(result, await loadFile(path.join(dir, file)))
           // to satisfy the type checker
@@ -1078,8 +1078,8 @@ export namespace Config {
     let result: Info = pipe(
       {},
       mergeDeep(await loadFile(path.join(Global.Path.config, "config.json"))),
-      mergeDeep(await loadFile(path.join(Global.Path.config, "opencode.json"))),
-      mergeDeep(await loadFile(path.join(Global.Path.config, "opencode.jsonc"))),
+      mergeDeep(await loadFile(path.join(Global.Path.config, "raven.json"))),
+      mergeDeep(await loadFile(path.join(Global.Path.config, "raven.jsonc"))),
     )
 
     await import(path.join(Global.Path.config, "config"), {

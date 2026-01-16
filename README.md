@@ -1,13 +1,7 @@
 <p align="center">
-  <a href="https://opencode.ai">
-    <picture>
-      <source srcset="packages/console/app/src/asset/logo-ornate-dark.svg" media="(prefers-color-scheme: dark)">
-      <source srcset="packages/console/app/src/asset/logo-ornate-light.svg" media="(prefers-color-scheme: light)">
-      <img src="packages/console/app/src/asset/logo-ornate-light.svg" alt="OpenCode logo">
-    </picture>
-  </a>
+  <h1>🐦‍⬛ RAVEN</h1>
 </p>
-<p align="center">The open source AI coding agent.</p>
+<p align="center">Enhanced AI coding agent - A powerful fork of OpenCode.</p>
 <p align="center">
   <a href="https://opencode.ai/discord"><img alt="Discord" src="https://img.shields.io/discord/1391832426048651334?style=flat-square&label=discord" /></a>
   <a href="https://www.npmjs.com/package/opencode-ai"><img alt="npm" src="https://img.shields.io/npm/v/opencode-ai?style=flat-square" /></a>
@@ -20,58 +14,71 @@
 
 ### Installation
 
-```bash
-# YOLO
-curl -fsSL https://opencode.ai/install | bash
+**RAVEN** is a forked and enhanced version of OpenCode with additional features and improvements.
 
-# Package managers
-npm i -g opencode-ai@latest        # or bun/pnpm/yarn
-scoop bucket add extras; scoop install extras/opencode  # Windows
-choco install opencode             # Windows
-brew install anomalyco/tap/opencode # macOS and Linux (recommended, always up to date)
-brew install opencode              # macOS and Linux (official brew formula, updated less)
-paru -S opencode-bin               # Arch Linux
-mise use -g opencode               # Any OS
-nix run nixpkgs#opencode           # or github:anomalyco/opencode for latest dev branch
+#### Quick Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/leeak/opencode-Lee.git
+cd opencode-Lee
+
+# Install dependencies
+bun install
+
+# Start RAVEN
+bun run dev
+```
+
+#### Alternative: Direct CLI Usage
+
+```bash
+# After cloning and installing dependencies
+# Navigate to the opencode package
+cd packages/opencode
+
+# Run RAVEN directly
+bun run dev
+```
+
+#### Global Installation (Coming Soon)
+
+```bash
+# Will be available once published
+npm install -g raven-ai
 ```
 
 > [!TIP]
 > Remove versions older than 0.1.x before installing.
 
-### Desktop App (BETA)
+### RAVEN vs OpenCode
 
-OpenCode is also available as a desktop application. Download directly from the [releases page](https://github.com/anomalyco/opencode/releases) or [opencode.ai/download](https://opencode.ai/download).
+RAVEN includes all OpenCode features plus:
 
-| Platform              | Download                              |
-| --------------------- | ------------------------------------- |
-| macOS (Apple Silicon) | `opencode-desktop-darwin-aarch64.dmg` |
-| macOS (Intel)         | `opencode-desktop-darwin-x64.dmg`     |
-| Windows               | `opencode-desktop-windows-x64.exe`    |
-| Linux                 | `.deb`, `.rpm`, or AppImage           |
+- **Enhanced CLI Experience**: Improved command-line interface with better error handling
+- **Custom Branding**: Personalized experience with RAVEN branding
+- **Additional Features**: Extended functionality beyond the original OpenCode
+- **Performance Optimizations**: Various improvements for better performance
 
-```bash
-# macOS (Homebrew)
-brew install --cask opencode-desktop
-```
+> **Note**: RAVEN is based on OpenCode but is an independent fork. It is not affiliated with the official OpenCode team.
 
-#### Installation Directory
+### Usage
 
-The install script respects the following priority order for the installation path:
-
-1. `$OPENCODE_INSTALL_DIR` - Custom installation directory
-2. `$XDG_BIN_DIR` - XDG Base Directory Specification compliant path
-3. `$HOME/bin` - Standard user binary directory (if exists or can be created)
-4. `$HOME/.opencode/bin` - Default fallback
+Once installed, you can start RAVEN using:
 
 ```bash
-# Examples
-OPENCODE_INSTALL_DIR=/usr/local/bin curl -fsSL https://opencode.ai/install | bash
-XDG_BIN_DIR=$HOME/.local/bin curl -fsSL https://opencode.ai/install | bash
+# From the project root
+bun run dev
+
+# Or from the packages/opencode directory
+cd packages/opencode && bun run dev
 ```
+
+RAVEN will start with the same powerful AI coding capabilities as OpenCode, but with enhanced features and customizations.
 
 ### Agents
 
-OpenCode includes two built-in agents you can switch between with the `Tab` key.
+RAVEN includes the same powerful agent system as OpenCode with two built-in agents you can switch between with the `Tab` key:
 
 - **build** - Default, full access agent for development work
 - **plan** - Read-only agent for analysis and code exploration
@@ -79,35 +86,50 @@ OpenCode includes two built-in agents you can switch between with the `Tab` key.
   - Asks permission before running bash commands
   - Ideal for exploring unfamiliar codebases or planning changes
 
-Also, included is a **general** subagent for complex searches and multistep tasks.
+Also included is a **general** subagent for complex searches and multistep tasks.
 This is used internally and can be invoked using `@general` in messages.
-
-Learn more about [agents](https://opencode.ai/docs/agents).
 
 ### Documentation
 
-For more info on how to configure OpenCode [**head over to our docs**](https://opencode.ai/docs).
+RAVEN uses the same configuration system as OpenCode. For configuration details, refer to the [OpenCode documentation](https://opencode.ai/docs).
 
 ### Contributing
 
-If you're interested in contributing to OpenCode, please read our [contributing docs](./CONTRIBUTING.md) before submitting a pull request.
+If you're interested in contributing to RAVEN, please:
 
-### Building on OpenCode
+1. Fork this repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-If you are working on a project that's related to OpenCode and is using "opencode" as a part of its name; for example, "opencode-dashboard" or "opencode-mobile", please add a note to your README to clarify that it is not built by the OpenCode team and is not affiliated with us in any way.
+### Building on RAVEN
+
+RAVEN is a fork of OpenCode and includes all original OpenCode functionality with additional enhancements. This project is not affiliated with the official OpenCode team.
 
 ### FAQ
 
-#### How is this different from Claude Code?
+#### How is RAVEN different from OpenCode?
 
-It's very similar to Claude Code in terms of capability. Here are the key differences:
+RAVEN is a fork of OpenCode that includes:
+
+- All OpenCode features and capabilities
+- Enhanced user experience with custom branding
+- Additional performance optimizations
+- Extended functionality beyond the original OpenCode
+- Improved error handling and CLI experience
+
+#### How is RAVEN different from Claude Code?
+
+Like OpenCode, RAVEN is very similar to Claude Code in terms of capability. Key differences:
 
 - 100% open source
-- Not coupled to any provider. Although we recommend the models we provide through [OpenCode Zen](https://opencode.ai/zen); OpenCode can be used with Claude, OpenAI, Google or even local models. As models evolve the gaps between them will close and pricing will drop so being provider-agnostic is important.
+- Not coupled to any provider. Can be used with Claude, OpenAI, Google or even local models
 - Out of the box LSP support
-- A focus on TUI. OpenCode is built by neovim users and the creators of [terminal.shop](https://terminal.shop); we are going to push the limits of what's possible in the terminal.
-- A client/server architecture. This for example can allow OpenCode to run on your computer, while you can drive it remotely from a mobile app. Meaning that the TUI frontend is just one of the possible clients.
+- Focus on terminal user interface (TUI)
+- Client/server architecture allowing remote usage
 
 ---
 
-**Join our community** [Discord](https://discord.gg/opencode) | [X.com](https://x.com/opencode)
+**RAVEN** - Enhanced AI coding agent based on OpenCode
+
+> This is an independent fork and is not affiliated with the official OpenCode team.

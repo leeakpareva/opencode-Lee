@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #0a0a0a;
+    color: #eeeeee;
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+  }
+
+  #__next {
+    height: 100%;
+  }
+}
+
+@layer utilities {
+  .terminal-glow {
+    box-shadow: 0 0 20px rgba(250, 178, 131, 0.2);
+  }
+
+  .raven-text-shadow {
+    text-shadow: 0 0 10px rgba(250, 178, 131, 0.5);
+  }
+}
