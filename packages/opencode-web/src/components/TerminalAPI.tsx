@@ -20,7 +20,7 @@ export default function TerminalAPI({ authenticated }: TerminalAPIProps) {
   const [processing, setProcessing] = useState(false)
 
   useEffect(() => {
-    if (!terminalRef.current || !authenticated) return
+    if (!terminalRef.current) return
 
     // Initialize xterm.js
     const xterm = new XTerm({
@@ -77,7 +77,17 @@ export default function TerminalAPI({ authenticated }: TerminalAPIProps) {
 
     // Open terminal
     xterm.open(terminalRef.current)
-    fitAddon.fit()
+
+    // Delay fit to ensure terminal is properly initialized
+    setTimeout(() => {
+      if (fitAddon) {
+        try {
+          fitAddon.fit()
+        } catch (e) {
+          console.warn('Failed to fit terminal:', e)
+        }
+      }
+    }, 100)
 
     // Display welcome message
     xterm.writeln('')
@@ -175,7 +185,11 @@ export default function TerminalAPI({ authenticated }: TerminalAPIProps) {
     // Handle resize
     const handleResize = () => {
       if (fitAddonRef.current) {
-        fitAddonRef.current.fit()
+        try {
+          fitAddonRef.current.fit()
+        } catch (e) {
+          console.warn('Failed to fit on resize:', e)
+        }
       }
     }
 
@@ -188,15 +202,7 @@ export default function TerminalAPI({ authenticated }: TerminalAPIProps) {
         xtermRef.current.dispose()
       }
     }
-  }, [authenticated, commandHistory, processing])
-
-  if (!authenticated) {
-    return (
-      <div className="h-full flex items-center justify-center text-terminal-muted">
-        <p>Please authenticate to access the terminal</p>
-      </div>
-    )
-  }
+  }, [commandHistory, processing])
 
   return (
     <div className="h-full p-4">
