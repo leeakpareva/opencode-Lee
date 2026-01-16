@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { Suspense } from 'react'
+import React, { Suspense } from 'react'
 
 // Always use API-based terminal for simplicity
 const Terminal = dynamic(

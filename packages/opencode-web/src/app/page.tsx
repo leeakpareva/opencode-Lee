@@ -1,8 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TerminalWrapper from '@/components/TerminalWrapper'
-import Logo from '@/components/Logo'
 import StatusBar from '@/components/StatusBar'
 import { useKeyBindings } from '@/hooks/useKeyBindings'
 
@@ -19,7 +18,15 @@ export default function Home() {
   return (
     <div className="h-screen w-screen bg-terminal-bg overflow-hidden flex flex-col">
       <div className="flex-shrink-0 p-4">
-        <Logo />
+        <div className="transition-opacity duration-1000 opacity-100">
+          <pre className="text-terminal-primary font-bold text-xs sm:text-sm md:text-base lg:text-lg select-none raven-text-shadow">
+{`██████   █████  ██    ██ ███████ ███    ██
+██   ██ ██   ██ ██    ██ ██      ████   ██
+██████  ███████ ██    ██ █████   ██ ██  ██
+██   ██ ██   ██  ██  ██  ██      ██  ██ ██
+██   ██ ██   ██   ████   ███████ ██   ████`}
+          </pre>
+        </div>
       </div>
 
       <div className="flex-1 overflow-hidden">

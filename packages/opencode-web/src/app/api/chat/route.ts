@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import OpenAI from 'openai'
 
 // Always run in demo mode for free access
 const DEMO_MODE = true
@@ -76,32 +75,8 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    // If in demo mode, return demo responses
-    if (DEMO_MODE) {
-      const response = getDemoResponse(message)
-      return NextResponse.json({
-        response,
-        type: 'ai'
-      })
-    }
-
-    // Send to OpenAI (only if valid API key)
-    const completion = await openai!.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [
-        {
-          role: 'system',
-          content: 'You are RAVEN, an AI assistant in a terminal interface. Respond concisely and helpfully. Format your responses for terminal display.'
-        },
-        ...history.slice(-10),
-        { role: 'user', content: message }
-      ],
-      max_tokens: 500,
-      temperature: 0.7,
-    })
-
-    const response = completion.choices[0].message.content
-
+    // Always return demo responses (free mode)
+    const response = getDemoResponse(message)
     return NextResponse.json({
       response,
       type: 'ai'
